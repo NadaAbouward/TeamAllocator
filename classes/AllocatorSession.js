@@ -1,11 +1,19 @@
-class AllocatorSession(){
+class AllocatorSession{
     constructor(teamSize, interests){
-    this.teamSize = teamSize
-    this.interests = interests
-    this.PIN = generatePIN()
-    this.members = []
+    this.teamSize = teamSize;
+    this.interests = interests;
+    this.PIN = generatePIN();
+    this.members = [];
     }
-    function generatePIN() {
+    allocateTeams(){
+    //allocate Teams Algorithm goes here
+    }
+    addMember(member){
+    //Add a new member to the array of members
+    members.push(member);
+    }
+}
+function generatePIN(){
     var length = 5,
         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
         retVal = "";
@@ -14,11 +22,7 @@ class AllocatorSession(){
     }
     return retVal;
 }
-    allocateTeams(){
-    //allocate Teams Algorithm goes here
-    }
-    addMember(member){
-    //Add a new member to the array of members
-    members.push(member)
-    }
+function startSession(){
+    console.log("it works");
+    //let currentSession = new AllocatorSession(document.getElementById("groupSizes"),("option1","option2"));
 }
