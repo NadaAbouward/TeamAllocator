@@ -2,7 +2,7 @@ class TeamMember {
   constructor(name, year) {
     this.name = '';
     this.email = '';
-    this.interets1 = '';
+    this.interest1 = '';
     this.interest2 = '';
     this.interest3 = '';
   }
