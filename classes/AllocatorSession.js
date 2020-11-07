@@ -23,9 +23,10 @@ function generatePIN(){
     return retVal;
 }
 function startSession(){
-    console.log("it works");
-    let currentSession = new AllocatorSession(document.getElementById("groupSizes"),("option1","option2"));
+    var teamSize = document.getElementById("sizes").value;
+    var totalParticipants = document.getElementById("total").value;
+    let currentSession = new AllocatorSession(teamSize,("option1","option2"));
     var view = document.getElementById("viewContainer");
-    view.innerHTML= "The password for the session is:"
+    view.innerHTML= "The password for the session is:  "+ currentSession.PIN
     view.classList.add("passwordViewStyle");
 }
