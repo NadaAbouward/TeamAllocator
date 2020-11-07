@@ -2,9 +2,9 @@ class AllocatorSession(){
     constructor(teamSize, interests){
     this.teamSize = teamSize
     this.interests = interests
-    this.PIN = ''
+    this.PIN = generatePIN()
     this.members = []
-    {
+    }
     function generatePIN() {
     var length = 5,
         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
@@ -14,4 +14,11 @@ class AllocatorSession(){
     }
     return retVal;
 }
+    allocateTeams(){
+    //allocate Teams Algorithm goes here
+    }
+    addMember(member){
+    //Add a new member to the array of members
+    members.push(member)
+    }
 }
