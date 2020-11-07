@@ -13,16 +13,16 @@
         <header>
             <h1>Hackathon Team Builder</h1>   
         </header>
-        <div class="container" >
+        <div class="container" id="viewContainer">
         <h3>Divide people according to their prefences and build teams </h3>
-        <form id="test" action="userView.html">
+        <form id="test">
             <label for ="total">How many people will be joining?</label>
             <input type="text" id="total" name="total"><br>
             <label for = "sizes">What are the group sizes?</label>
             <input type="text" id="sizes" name="sizes"><br>
             <label for = "options" >What are the options for prefrences?</label>
             <input type="text" id="options" name="options"><br>
-            <button type="button" class="btn"><input type="submit" class="btn" value="Start session" id ="adminSubmit" onclick="startSession()">
+            <input type="button" class="btn" value="Start session" id ="adminSubmit" onclick="startSession()">
         </form>
         </div>
         <script type="text/javascript" src="classes/AllocatorSession.js"></script>

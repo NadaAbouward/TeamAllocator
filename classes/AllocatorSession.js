@@ -24,5 +24,8 @@ function generatePIN(){
 }
 function startSession(){
     console.log("it works");
-    //let currentSession = new AllocatorSession(document.getElementById("groupSizes"),("option1","option2"));
+    let currentSession = new AllocatorSession(document.getElementById("groupSizes"),("option1","option2"));
+    var view = document.getElementById("viewContainer");
+    view.innerHTML= "The password for the session is:"
+    view.classList.add("passwordViewStyle");
 }

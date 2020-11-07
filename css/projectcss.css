@@ -19,3 +19,7 @@ form label{
 form {
     padding-top: 20px;;
 }
+.passwordViewStyle{
+    font-size: 20px;
+    padding: 20px;
+}
