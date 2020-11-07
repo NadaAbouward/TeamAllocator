@@ -28,6 +28,13 @@ function startSession(){
     var totalParticipants = document.getElementById("total").value;
     let currentSession = new AllocatorSession(teamSize,("option1","option2"));
     var view = document.getElementById("viewContainer");
-    view.innerHTML= "The password for the session is:  "+ currentSession.PIN
+    var domainName= document.getElementById("userDomain");
+    view.innerHTML= "The password for the session is:  "+ currentSession.PIN;
+    domainName.innerHTML = "Ask users to sign up in www.Alloka/UserView.tech";
+    view.appendChild(domainName);
     view.classList.add("passwordViewStyle");
+    var endButton = document.createElement("BUTTON");
+    endButton.innerHTML = "End session";
+    endButton.classList.add("btn", "endSessionButton","container")   
+    view.appendChild(endButton);              
 }

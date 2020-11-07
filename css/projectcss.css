@@ -23,3 +23,10 @@ form {
     font-size: 20px;
     padding: 20px;
 }
+#userDomain{
+    font-size: 17px;
+}
+.endSessionButton{
+    padding: 10px;
+    margin: 10px 30px;
+}
