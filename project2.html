@@ -13,17 +13,18 @@
         <h1>Hackathon Team Builder</h1>   
     </header>
     <body>
+        
         <form class="container">
-            <div class="form-row">
-                <div class="col">
+            <div class="row">
+                <div class="form-group col-xs-6">
                   <input type="text" class="form-control" placeholder="First name">
                 </div>
-                <div class="col">
+                <div class="form-group col-xs-6">
                   <input type="text" class="form-control" placeholder="Last name">
                 </div>
               </div>
-            <div class="form-row align-items-center">
-                <div class="col-auto my-1">
+            <div class="row align-items-center">
+                <div class="form-group col-xs-4 col-auto my-1">
                     <label class="mr-sm-2" for="inlineFormCustomSelect">Preference One:</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                       <option selected>Choose...</option>
@@ -32,7 +33,7 @@
                       <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-auto my-1">
+                <div class="form-group col-xs-4 col-auto my-1">
                     <label class="mr-sm-2" for="inlineFormCustomSelect">Preference Two:</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                       <option selected>Choose...</option>
@@ -41,7 +42,7 @@
                       <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="col-auto my-1">
+                <div class="form-group col-xs-4 col-auto my-1">
                     <label class="mr-sm-2" for="inlineFormCustomSelect">Preference Three:</label>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                       <option selected>Choose...</option>
@@ -50,10 +51,20 @@
                       <option value="3">Three</option>
                     </select>
                 </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="form-group col-xs-4 col-auto my-1">
+                <label for="inputPassword5">Enter Pin:</label>
+                <input type="password" id="inputPassword5" class="form-control col-3" aria-describedby="passwordHelpBlock">
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                Enter the 5 letter code given to enter this session.
+                </small>
+                </div>
+            </div>
               <div class="col-auto my-1">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-            </div>
+            
           </form>
     </body>
 </html>
