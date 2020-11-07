@@ -1,16 +1,18 @@
 class AllocatorSession{
     constructor(teamSize, interests){
-    this.teamSize = teamSize;
-    this.interests = interests;
-    this.PIN = generatePIN();
-    this.members = [];
+        this.teamSize = teamSize;
+        this.interests = interests;
+        this.PIN = generatePIN();
+        this.members = [];
     }
+    
     allocateTeams(){
-    //allocate Teams Algorithm goes here
+        //allocate Teams Algorithm goes here
     }
+
     addMember(member){
-    //Add a new member to the array of members
-    members.push(member);
+        //Add a new member to the array of members
+        members.push(member);
     }
 }
 function generatePIN(){
