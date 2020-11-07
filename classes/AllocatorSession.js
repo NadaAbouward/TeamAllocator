@@ -14,6 +14,7 @@ class AllocatorSession{
     }
 }
 function generatePIN(){
+    console.log("generting pin");
     var length = 5,
         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
         retVal = "";
