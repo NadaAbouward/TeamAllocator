@@ -47,14 +47,12 @@ function endSession(){
 }
 
 class User {
-    constructor(firstName, secondName, email, preference1, preference2, preference3) {
-       this.firstName = firstName;
-       this.secondname = secondName;
+    constructor(name, email, preference1, preference2, preference3) {
+       this.name = name;
        this.email = email;
        this.preference1 = preference1;
        this.preference2 = preference2;
        this.preference3 = preference3;
-       console.log("user is created")
     }
 
     getFirstPerf() {
@@ -217,17 +215,18 @@ function allocateTeams(usersArray) {
 
 function generateOptions(){
     selectELements = document.getElementsByClassName("optionsList");
-    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
-    for (j = 0 ; j<3 ; j++){
-        for (i=0 ; i<options.length ; i++){
-            var option = document.createElement("OPTION");
-            option.innerHTML = options[i];
-            selectELements[j].appendChild(option);              
-        } 
-    }
+    console.log(selectELements[0]);
+    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave"];
+    for (i=0 ; i<options.length ; i++){
+        var option = document.createElement("OPTION");
+        option.innerHTML = options[i];
+        console.log(selectELements[0]);
+        // option.classList.add("btn", "endSessionButton","container")   
+        selectELements[0].appendChild(option);              
+    } 
 }
 
-generateOptions();
+// generateOptions();
 
 
 
