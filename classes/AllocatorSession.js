@@ -23,6 +23,7 @@ function generatePIN(){
     for (var i = 0, n = charset.length; i < length; ++i) {
         retVal += charset.charAt(Math.floor(Math.random() * n));
     }
+    var password = retVal;
     return retVal;
 }
 function startSession(){
@@ -32,11 +33,15 @@ function startSession(){
     var view = document.getElementById("viewContainer");
     var domainName= document.getElementById("userDomain");
     view.innerHTML= "The password for the session is:  "+ currentSession.PIN;
-    domainName.innerHTML = "Ask users to sign up in www.Alloka/UserView.tech";
+    domainName.innerHTML = "Ask users to sign up in http://35.246.84.210/userView.html";
     view.appendChild(domainName);
     view.classList.add("passwordViewStyle");
     var endButton = document.createElement("BUTTON");
     endButton.innerHTML = "End session";
     endButton.classList.add("btn", "endSessionButton","container")   
-    view.appendChild(endButton);              
+    view.appendChild(endButton); 
+    endButton.addEventListener(onclick,endSession());             
+}
+function endSession(){
+    view.innerHTML = allocateTeams()
 }
