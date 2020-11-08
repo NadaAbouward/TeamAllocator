@@ -54,7 +54,10 @@ class User {
        this.preference1 = preference1;
        this.preference2 = preference2;
        this.preference3 = preference3;
-       console.log("user is created")
+    }
+
+    getEmail() {
+        return this.email;
     }
 
     getFirstPerf() {
@@ -211,7 +214,7 @@ function allocateTeams(usersArray) {
         }
     }
 
-    return allocatedTeams;
+    return allocatedTeams.map(p => p.map(u => u.getEmail()));
 }
 
 
