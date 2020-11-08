@@ -226,7 +226,7 @@ function generateOptions(){
     } 
 }
 
-// generateOptions();
+generateOptions();
 
 
 
