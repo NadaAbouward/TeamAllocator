@@ -216,15 +216,15 @@ function allocateTeams(usersArray) {
 
 
 function generateOptions(){
-    // selectELements = document.getElementsByClassName("optionsList");
-    // var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
-    // for (j = 0 ; j<3 ; j++){
-    //     for (i=0 ; i<options.length ; i++){
-    //         var option = document.createElement("OPTION");
-    //         option.innerHTML = options[i];
-    //         selectELements[j].appendChild(option);              
-    //     } 
-    // }
+    selectELements = document.getElementsByClassName("optionsList");
+    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
+    for (j = 0 ; j<3 ; j++){
+        for (i=0 ; i<options.length ; i++){
+            var option = document.createElement("OPTION");
+            option.innerHTML = options[i];
+            selectELements[j].appendChild(option);              
+        } 
+    }
 }
 
 generateOptions();
@@ -266,7 +266,10 @@ function createUser(){
     userInfo = document.getElementsByClassName("userInfo");
     selectBoxes = document.getElementsByClassName("optionsList");
     pin = document.getElementById("inputPassword5");
-    console.log(currentSession.PIN)
-    new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
-    
+    // new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
+    displayTeams(new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value))
+}
+function displayTeams(newUser){
+    teamView = document.getElementById("teamsView")
+    teamView.innerHTML = "The allocated teams are" + allocateTeams(participants);
 }
