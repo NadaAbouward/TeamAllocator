@@ -47,12 +47,14 @@ function endSession(){
 }
 
 class User {
-    constructor(name, email, preference1, preference2, preference3) {
-       this.name = name;
+    constructor(firstName, secondName, email, preference1, preference2, preference3) {
+       this.firstName = firstName;
+       this.secondname = secondName;
        this.email = email;
        this.preference1 = preference1;
        this.preference2 = preference2;
        this.preference3 = preference3;
+       console.log("user is created")
     }
 
     getFirstPerf() {
@@ -114,9 +116,9 @@ function getTeamsThirdPerf(usersArray) {
 // This is the main allocating function.
 function allocateTeams(usersArray) {
 
-    // get the teams and the number od people that will be in each
+    // get the teams and the number of people that will be in each
     getTeamsFirstPerf(usersArray);
-    var values = [ ...teamsFormedSoFarMap.values() ];
+    var values = [...teamsFormedSoFarMap.values()];
     var keys = [...teamsFormedSoFarMap.keys()];
 
     //put the grouped users into their teams and remove them from the full users list
@@ -150,7 +152,7 @@ function allocateTeams(usersArray) {
     teamsFormedSoFarMap.clear();
 
     getTeamsSecondPerf(usersArray);
-    values = [ ...teamsFormedSoFarMap.values() ];
+    values = [...teamsFormedSoFarMap.values()];
     keys = [...teamsFormedSoFarMap.keys()];
     for(k in keys){
         let tempArray = [];
@@ -181,7 +183,7 @@ function allocateTeams(usersArray) {
     teamsFormedSoFarMap.clear();
 
     getTeamsThirdPerf(usersArray);
-    values = [ ...teamsFormedSoFarMap.values() ];
+    values = [...teamsFormedSoFarMap.values()];
     keys = [...teamsFormedSoFarMap.keys()];
     for(k in keys){
         let tempArray = [];
@@ -214,15 +216,15 @@ function allocateTeams(usersArray) {
 
 
 function generateOptions(){
-    selectELements = document.getElementsByClassName("optionsList");
-    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
-    for (j = 0 ; j<3 ; j++){
-        for (i=0 ; i<options.length ; i++){
-            var option = document.createElement("OPTION");
-            option.innerHTML = options[i];
-            selectELements[j].appendChild(option);              
-        } 
-    }
+    // selectELements = document.getElementsByClassName("optionsList");
+    // var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
+    // for (j = 0 ; j<3 ; j++){
+    //     for (i=0 ; i<options.length ; i++){
+    //         var option = document.createElement("OPTION");
+    //         option.innerHTML = options[i];
+    //         selectELements[j].appendChild(option);              
+    //     } 
+    // }
 }
 
 generateOptions();
@@ -230,17 +232,30 @@ generateOptions();
 
 
 //test with a made-up array of users
-
 var participants = []
-participants.push(new User("Nada", "nada@nada", "Unity", "Java", "Kotlin"));
-participants.push(new User("Nayira", "nayira@nayira", "HTML", "Java", "Web Development"));
-participants.push(new User("tony", "tony@tony", "Java", "SQL", "Unity"));
-participants.push(new User("Shivani", "shivani@shivani", "Python", "Machine Learning", "Unity"));
-participants.push(new User("Angus", "angus@angus", "HTML", "Java", "Unity"));
-participants.push(new User("jon", "jon@jon", "Python", "Machine Learning", "Unity"));
-participants.push(new User("A", "A@A", "Unity", "HTML", "Kotlin"));
-participants.push(new User("B", "B@B", "Unity", "Java", "Kotlin"));
-participants.push(new User("C", "C@C", "Unity", "HTML", "HTML"));
+participants.push(new User("Nada", "Abouward", "nada@hotmail.com", "Web App", "Mobile", "Kotlin"));
+participants.push(new User("Nayira", "Abdelmaguid", "nayira@hotmail.com", "Other", "Cloud", "Vaporwave"));
+participants.push(new User("Tony", "Simmons", "tony@hotmail.com", "Mobile", "Vaporwave", "Web App"));
+participants.push(new User("Shivani", "Sushi", "shivani@hotmail.com", "Machine Learning", "Python", "Vaporwave"));
+participants.push(new User("Angus", "AAngus", "angus@hotmail.com", "Kotlin", "Python", "Web App"));
+participants.push(new User("Jon", "Barker", "jon@hotmail.com", "Machine Learning", "Python", "Web App"));
+participants.push(new User("Harry", "Potter", "harry@hotmail.com", "Web App", "Mobile", "Kotlin"));
+participants.push(new User("Ron", "Weasly", "ron@hotmail.com", "Cloud", "Vaporwave", "Other"));
+participants.push(new User("Fred", "Weasly", "fred@hotmail.com", "Kotlin", "Other", "Vaporwave"));
+participants.push(new User("Ginny", "Weasly", "ginny@hotmail.com", "Vaporwave", "Other", "Cloud"));
+participants.push(new User("Draco", "Malfoy", "draco@hotmail.com", "Kotlin", "Mobile", "Machine Learning"));
+participants.push(new User("Ed", "Sherran", "ed@hotmail.com", "Vaporwave", "Cloud", "Web App"));
+participants.push(new User("Jessie", "Park", "jessi@hotmail.com", "Mobile", "Kotlin", "Python"));
+participants.push(new User("Mark", "Tuan", "mark@hotmail.com", "Cloud", "Python", "Vaporwave"));
+participants.push(new User("Jackson", "Wang", "jackson@hotmail.com", "Web App", "Vaporwave", "Python"));
+participants.push(new User("Bam", "Bam", "bam@hotmail.com", "Machine Learning", "Python", "Other" ));
+participants.push(new User("Joey", "Tuan", "joey@hotmail.com", "Other", "Python", "Web App"));
+participants.push(new User("Jae", "Park", "jae@hotmail.com", "Web App", "Python", "Vaporwave"));
+participants.push(new User("Eman", "Elsayed", "eman@hotmail.com", "Python", "Machine Learning", "Other"));
+participants.push(new User("Dana", "Alkofahi", "dana@hotmail.com", "Other", "Mobile", "Kotlin"));
+participants.push(new User("Lara", "Ibrahim", "lara@hotmail.com", "Machine Learning", "Python", "Kotlin"));
+participants.push(new User("Anna", "Andrew", "anna@hotmail.com", "Cloud", "Mobile", "Other"));
+participants.push(new User("Reem", "Wael", "reem@hotmail.com", "Mobile", "Python", "Vaporwave"));
 
 var maxTeamSize = 2;
 var teamsFormedSoFarMap = new Map();
@@ -251,10 +266,7 @@ function createUser(){
     userInfo = document.getElementsByClassName("userInfo");
     selectBoxes = document.getElementsByClassName("optionsList");
     pin = document.getElementById("inputPassword5");
-    newUser = new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
-    displayTeams(newUser);
+    console.log(currentSession.PIN)
+    new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
+    
 }
- function displayTeams(newUser){
-    teamView = document.getElementById("teamsView")
-    teamView.innerHTML = "The allocated teams are" + allocateTeams(participants.push(newUser));
- }
