@@ -215,15 +215,14 @@ function allocateTeams(usersArray) {
 
 function generateOptions(){
     selectELements = document.getElementsByClassName("optionsList");
-    console.log(selectELements[0]);
-    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave"];
-    for (i=0 ; i<options.length ; i++){
-        var option = document.createElement("OPTION");
-        option.innerHTML = options[i];
-        console.log(selectELements[0]);
-        // option.classList.add("btn", "endSessionButton","container")   
-        selectELements[0].appendChild(option);              
-    } 
+    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
+    for (j = 0 ; j<3 ; j++){
+        for (i=0 ; i<options.length ; i++){
+            var option = document.createElement("OPTION");
+            option.innerHTML = options[i];
+            selectELements[j].appendChild(option);              
+        } 
+    }
 }
 
 generateOptions();
