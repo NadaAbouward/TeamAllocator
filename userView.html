@@ -19,10 +19,13 @@
           <label>Please fill the following fields:</label>
         </div>   
         <div class="form-group col-xs-6">
-          <input type="text" class="form-control" placeholder="First name">
+          <input type="text" class="form-control userInfo" placeholder="First name" >
         </div>
         <div class="form-group col-xs-6">
-          <input type="text" class="form-control" placeholder="Last name">
+          <input type="text" class="form-control userInfo" placeholder="Last name">
+        </div>        
+        <div class="form-group col-xs-6">
+          <input type="text" class="form-control userInfo" placeholder="E-mail">
         </div>
       </div>
       <div class="row align-items-center">
@@ -40,7 +43,7 @@
         </div>
         <div class="form-group col-xs-4 col-auto my-1">
           <label class="mr-sm-2" for="inlineFormCustomSelect">Preference Three:</label>
-          <select class="custom-select mr-sm-2, optionsList" id="inlineFormCustomSelect" >
+          <select class="custom-select mr-sm-2 optionsList" id="inlineFormCustomSelect" >
             <option selected>Choose...</option>
           </select>
         </div>
@@ -55,9 +58,10 @@
         </div>
       </div>
       <div class="col-auto my-1">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="createUser()">Submit</button>
       </div>   
     </form>
-    <script type="text/javascript" src="classes/TeamMember.js"></script>
+    <script type="text/javascript" src="classes/User.js"></script>
+    <!-- <script type="text/javascript" src="classes/AllocatorSession.js"></script>     -->
   </body>
 </html>

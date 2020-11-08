@@ -1,10 +1,60 @@
+class AllocatorSession{
+    constructor(teamSize, interests){
+        this.teamSize = teamSize;
+        this.interests = interests;
+        this.PIN = generatePIN();
+        this.members = [];
+    }
+    
+    allocateTeams(){
+        //allocate Teams Algorithm goes here
+    }
+
+    addMember(member){
+        //Add a new member to the array of members
+        members.push(member);
+    }
+}
+function generatePIN(){
+    console.log("generting pin");
+    var length = 5,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+function startSession(){
+    var teamSize = document.getElementById("sizes").value;
+    var totalParticipants = document.getElementById("total").value;
+    let currentSession = new AllocatorSession(teamSize,("option1","option2"));
+    var view = document.getElementById("viewContainer");
+    var domainName= document.getElementById("userDomain");
+    var password = currentSession.PIN;
+    view.innerHTML= "The password for the session is:  "+ currentSession.PIN;
+    domainName.innerHTML = "Ask users to sign up in http://35.246.84.210/userView.html";
+    view.appendChild(domainName);
+    view.classList.add("passwordViewStyle");
+    var endButton = document.createElement("BUTTON");
+    endButton.innerHTML = "End session";
+    endButton.classList.add("btn", "endSessionButton","container")   
+    view.appendChild(endButton); 
+    endButton.addEventListener(onclick,endSession());              
+}
+function endSession(){
+    view.innerHTML = allocateTeams()
+}
+
 class User {
-    constructor(name, email, preference1, preference2, preference3) {
-       this.name = name;
+    constructor(firstName, secondName, email, preference1, preference2, preference3) {
+       this.firstName = firstName;
+       this.secondname = secondName;
        this.email = email;
        this.preference1 = preference1;
        this.preference2 = preference2;
        this.preference3 = preference3;
+       console.log("user is created")
     }
 
     getFirstPerf() {
@@ -149,18 +199,17 @@ function allocateTeams(usersArray) {
 
 function generateOptions(){
     selectELements = document.getElementsByClassName("optionsList");
-    console.log(selectELements[0]);
-    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave"];
-    for (i=0 ; i<options.length ; i++){
-        var option = document.createElement("OPTION");
-        option.innerHTML = options[i];
-        console.log(selectELements[0]);
-        // option.classList.add("btn", "endSessionButton","container")   
-        selectELements[0].appendChild(option);              
-    } 
+    var options = ["Web App", "Kotlin", "Machine Learning", "Mobile", "Cloud","Python", "Vaporwave","Other"];
+    for (j = 0 ; j<3 ; j++){
+        for (i=0 ; i<options.length ; i++){
+            var option = document.createElement("OPTION");
+            option.innerHTML = options[i];
+            selectELements[j].appendChild(option);              
+        } 
+    }
 }
 
-// generateOptions();
+generateOptions();
 
 
 
@@ -180,4 +229,14 @@ var maxTeamSize = 1;
 var teamsFormedSoFarMap = new Map();
 var allocatedTeams = []
 // allocateTeams(participants)
-console.log(allocateTeams(participants));
+//console.log(allocateTeams(participants));
+
+function createUser(){
+    userInfo = document.getElementsByClassName("userInfo");
+    selectBoxes = document.getElementsByClassName("optionsList");
+    pin = document.getElementById("inputPassword5");
+    console.log(currentSession.PIN)
+    new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
+    
+}
+
