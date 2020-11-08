@@ -97,6 +97,7 @@ function groupUsers(value, key, map) {
     }
 }
 
+// the following 3 functions get the  preferences of the users and runs groupUsers on them 
 function getTeamsFirstPerf(usersArray) {
     var preferenceMap = findCount(usersArray.map(p => p.getFirstPerf()));
     preferenceMap.forEach(groupUsers);
@@ -112,86 +113,103 @@ function getTeamsThirdPerf(usersArray) {
     preferenceMap.forEach(groupUsers);
 }
 
-//FYI THIS ISN'T COMPLETE YET ITS WRONG AND GIVES WRONG RESULTS I AM FIXING IT ^^
+// This is the main allocating function.
 function allocateTeams(usersArray) {
-    var tempArray = [];
 
+    // get the teams and the number od people that will be in each
     getTeamsFirstPerf(usersArray);
     var values = [ ...teamsFormedSoFarMap.values() ];
-    var numOfUsersGrouped = values.reduce((a, b) => a + b, 0) * maxTeamSize;
-    
     var keys = [...teamsFormedSoFarMap.keys()];
 
+    //put the grouped users into their teams and remove them from the full users list
     for(k in keys){
-        index = 0;
-        if(usersArray[index].has(key[k])) {
-            tempArray.push(usersArray[index]);
-            usersArray.splice(index, 1);
+        let tempArray = [];
+        let index = 0;
+        let counter = 0;
+        let bool = true;
+        while (bool && index < usersArray.length) {
+            if(usersArray[index].getFirstPerf() == (keys[k])) {
+                tempArray.push(usersArray[index]);
+                usersArray.splice(index, 1);
+                index--;
+                counter++;
+                if(counter == maxTeamSize) {
+                    allocatedTeams.push(tempArray);
+                    tempArray = [];
+                    counter = 0;
+                }
+                if(counter == values[k]*maxTeamSize) {
+                    allocatedTeams.push(tempArray);
+                    tempArray = [];
+                    bool = false;
+                }
+            }
+            index++;
         }
-        index++;
     }
-
-    for (v in values) {
-        counter = values[v];
-        
-    }
-
-
-    // if(teamsFormedSoFarMap.size > 0) {
-    //     for (var i = 0; i < numOfUsersGrouped; i++) {
-    //         index = i;
-    //         while(!teamsFormedSoFarMap.has(usersArray[index].getFirstPerf())) {
-    //             index++;
-    //         }
-    //         tempArray.push(usersArray[i]);
-    //         usersArray.splice(i, 1);
-    //     }
-    //     allocatedTeams.push(tempArray);
-    // }
-
-
-    tempArray = [];
+    
+    //clear the map for the first preference and repeat the process for the other preferences
     teamsFormedSoFarMap.clear();
 
+    getTeamsSecondPerf(usersArray);
+    values = [ ...teamsFormedSoFarMap.values() ];
+    keys = [...teamsFormedSoFarMap.keys()];
+    for(k in keys){
+        let tempArray = [];
+        let index = 0;
+        let counter = 0;
+        let bool = true;
+        while (bool && index < usersArray.length) {
+            if(usersArray[index].getSecondPerf() == (keys[k])) {
+                tempArray.push(usersArray[index]);
+                usersArray.splice(index, 1);
+                index--;
+                counter++;
+                if(counter == maxTeamSize) {
+                    allocatedTeams.push(tempArray);
+                    tempArray = [];
+                    counter = 0;
+                }
+                if(counter == values[k]*maxTeamSize) {
+                    allocatedTeams.push(tempArray);
+                    tempArray = [];
+                    bool = false;
+                }
+            }
+            index++;
+        }
+    }
     
+    teamsFormedSoFarMap.clear();
 
-    // getTeamsSecondPerf(usersArray);
-
-    // values =[ ...teamsFormedSoFarMap.values() ];
-    // numOfUsersGrouped = values.reduce((a, b) => a + b, 0);
-
-    // if(teamsFormedSoFarMap.size > 0) {
-    //     for (var i = 0; i < numOfUsersGrouped; i++) {
-    //         index = i;
-    //         while(!teamsFormedSoFarMap.has(usersArray[index].getSecondPerf())) {
-    //             index++;
-    //         }
-    //         tempArray.push(usersArray[i]);
-    //         usersArray.splice(i, 1);
-    //     }
-    //     allocatedTeams.push(tempArray);
-    // }
-
-    // tempArray = [];
-    // teamsFormedSoFarMap.clear();
-
-
-
-    // getTeamsThirdPerf(usersArray);
-    // values =[ ...teamsFormedSoFarMap.values() ];
-    // numOfUsersGrouped = values.reduce((a, b) => a + b, 0);
-
-    // if(teamsFormedSoFarMap.size > 0) {
-    //     for (var i = 0; i < numOfUsersGrouped; i++) {
-    //         index = i;
-    //         while(!teamsFormedSoFarMap.has(usersArray[index].getThirdPerf())) {
-    //             index++;
-    //         }
-    //         tempArray.push(usersArray[i]);
-    //         usersArray.splice(i, 1);
-    //     }
-    //     allocatedTeams.push(tempArray);
-    // }
+    getTeamsThirdPerf(usersArray);
+    values = [ ...teamsFormedSoFarMap.values() ];
+    keys = [...teamsFormedSoFarMap.keys()];
+    for(k in keys){
+        let tempArray = [];
+        let index = 0;
+        let counter = 0;
+        let bool = true;
+        while (bool && index < usersArray.length) {
+            if(usersArray[index].getThirdPerf() == (keys[k])) {
+                tempArray.push(usersArray[index]);
+                usersArray.splice(index, 1);
+                index--;
+                counter++;
+                if(counter == maxTeamSize) {
+                    allocatedTeams.push(tempArray);
+                    tempArray = [];
+                    counter = 0;
+                }
+                if(counter == values[k]*maxTeamSize) {
+                    allocatedTeams.push(tempArray);
+                    tempArray = [];
+                    bool = false;
+                }
+            }
+            index++;
+        }
+    }
 
     return allocatedTeams;
 }
@@ -213,6 +231,7 @@ generateOptions();
 
 
 
+//test with a made-up array of users
 
 var participants = []
 participants.push(new User("Nada", "nada@nada", "Unity", "Java", "Kotlin"));
@@ -225,11 +244,10 @@ participants.push(new User("A", "A@A", "Unity", "HTML", "Kotlin"));
 participants.push(new User("B", "B@B", "Unity", "Java", "Kotlin"));
 participants.push(new User("C", "C@C", "Unity", "HTML", "HTML"));
 
-var maxTeamSize = 1;
+var maxTeamSize = 2;
 var teamsFormedSoFarMap = new Map();
 var allocatedTeams = []
-// allocateTeams(participants)
-//console.log(allocateTeams(participants));
+console.log(allocateTeams(participants));
 
 function createUser(){
     userInfo = document.getElementsByClassName("userInfo");
