@@ -235,8 +235,10 @@ function createUser(){
     userInfo = document.getElementsByClassName("userInfo");
     selectBoxes = document.getElementsByClassName("optionsList");
     pin = document.getElementById("inputPassword5");
-    console.log(currentSession.PIN)
-    new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
-    
+    newUser = new User(userInfo[0], userInfo[1].value, userInfo[2].value, selectBoxes[0].value, selectBoxes[1].value, selectBoxes[2].value)
+    displayTeams(newUser);
 }
-
+ function displayTeams(newUser){
+    teamView = document.getElementById("teamsView")
+    teamView.innerHTML = "The allocated teams are" + allocateTeams(participants.push(newUser));
+ }
