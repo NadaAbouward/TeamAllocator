@@ -243,11 +243,11 @@ participants.push(new User("Shivani", "Sushi", "shivani@hotmail.com", "Machine L
 participants.push(new User("Angus", "AAngus", "angus@hotmail.com", "Kotlin", "Python", "Web App"));
 participants.push(new User("Jon", "Barker", "jon@hotmail.com", "Machine Learning", "Python", "Web App"));
 participants.push(new User("Harry", "Potter", "harry@hotmail.com", "Web App", "Mobile", "Kotlin"));
-participants.push(new User("Ron", "Weasly", "ron@hotmail.com", "Cloud", "Vaporwave", "Other"));
-participants.push(new User("Fred", "Weasly", "fred@hotmail.com", "Kotlin", "Other", "Vaporwave"));
-participants.push(new User("Ginny", "Weasly", "ginny@hotmail.com", "Vaporwave", "Other", "Cloud"));
+participants.push(new User("Ron", "Weasley", "ron@hotmail.com", "Cloud", "Vaporwave", "Other"));
+participants.push(new User("Fred", "Weasley", "fred@hotmail.com", "Kotlin", "Other", "Vaporwave"));
+participants.push(new User("Ginny", "Weasley", "ginny@hotmail.com", "Vaporwave", "Other", "Cloud"));
 participants.push(new User("Draco", "Malfoy", "draco@hotmail.com", "Kotlin", "Mobile", "Machine Learning"));
-participants.push(new User("Ed", "Sherran", "ed@hotmail.com", "Vaporwave", "Cloud", "Web App"));
+participants.push(new User("Ed", "Sheeran", "ed@hotmail.com", "Vaporwave", "Cloud", "Web App"));
 participants.push(new User("Jessie", "Park", "jessi@hotmail.com", "Mobile", "Kotlin", "Python"));
 participants.push(new User("Mark", "Tuan", "mark@hotmail.com", "Cloud", "Python", "Vaporwave"));
 participants.push(new User("Jackson", "Wang", "jackson@hotmail.com", "Web App", "Vaporwave", "Python"));
@@ -255,10 +255,8 @@ participants.push(new User("Bam", "Bam", "bam@hotmail.com", "Machine Learning", 
 participants.push(new User("Joey", "Tuan", "joey@hotmail.com", "Other", "Python", "Web App"));
 participants.push(new User("Jae", "Park", "jae@hotmail.com", "Web App", "Python", "Vaporwave"));
 participants.push(new User("Eman", "Elsayed", "eman@hotmail.com", "Python", "Machine Learning", "Other"));
-participants.push(new User("Dana", "Alkofahi", "dana@hotmail.com", "Other", "Mobile", "Kotlin"));
 participants.push(new User("Lara", "Ibrahim", "lara@hotmail.com", "Machine Learning", "Python", "Kotlin"));
-participants.push(new User("Anna", "Andrew", "anna@hotmail.com", "Cloud", "Mobile", "Other"));
-participants.push(new User("Reem", "Wael", "reem@hotmail.com", "Mobile", "Python", "Vaporwave"));
+participants.push(new User("Reem", "Ahmed", "reem@hotmail.com", "Mobile", "Python", "Vaporwave"));
 
 var maxTeamSize = 2;
 var teamsFormedSoFarMap = new Map();
